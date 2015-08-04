@@ -1,0 +1,8 @@
+# NPM stuff
+node_modules/
+
+# Other files and folders
+.settings/
+
+# OS stuff
+.DS_Store

@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "ES6"
+	},
+	"files": [
+		"script/Vector.js",
+		"script/PhysicsObject.js",
+		"script/Player.js",
+		"script/main.js"
+	]
+}
