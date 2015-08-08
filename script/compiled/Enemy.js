@@ -8,40 +8,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Player = (function (_PhysicsObject) {
-	_inherits(Player, _PhysicsObject);
+var Enemy = (function (_PhysicsObject) {
+	_inherits(Enemy, _PhysicsObject);
 
-	function Player(element, x, y) {
-		var _this = this;
+	function Enemy(element, x, y) {
+		_classCallCheck(this, Enemy);
 
-		_classCallCheck(this, Player);
-
-		_get(Object.getPrototypeOf(Player.prototype), "constructor", this).call(this, 30, 30, 100, x, y);
+		_get(Object.getPrototypeOf(Enemy.prototype), "constructor", this).call(this, 30, 30, 5, x, y);
 
 		this.element = element;
 
-		this.throttle = 300; // N
-		this.throttleForce = new Vector(0, 0);
-		this.forces.push(function () {
-			return _this.throttleForce;
-		});
+		// Gravity!
+		//this.forces.push(() => new Vector(0, this.mass * 9.81));
+		this.forces.pop();
 	}
 
-	_createClass(Player, [{
-		key: "move",
-		value: function move(keysDown) {
-			this.throttleForce.x = keysDown[key.LEFT] ? -this.throttle : keysDown[key.RIGHT] ? this.throttle : 0;
-			this.throttleForce.y = keysDown[key.UP] ? -this.throttle : keysDown[key.DOWN] ? this.throttle : 0;
-		}
-	}, {
+	_createClass(Enemy, [{
 		key: "render",
 		value: function render() {
 			this.next();
-
 			this.element.style.webkitTransform = "translate3d(" + (this.position.x - this.width / 2) + "px, " + (this.position.y - this.height / 2) + "px, 0)";
 		}
 	}]);
 
-	return Player;
+	return Enemy;
 })(PhysicsObject);
-//# sourceMappingURL=Player.js.map
+//# sourceMappingURL=Enemy.js.map

@@ -18,16 +18,25 @@ var keys = {
 };
 
 var player;
+var target;
 
 function loop() {
 	// Do stuff
 	player.move(keys.pressed);
+
 	player.render();
+	target.render();
+
 	requestAnimationFrame(loop);
 }
 
 function init() {
-	player = new Player(document.querySelector(".js-player"), 0, 0);
+	player = new Player(document.querySelector(".js-player"), 200, 100);
+	target = new Enemy(document.querySelector(".js-target"), 100, 100);
+
+	player.addCollisionObject(target);
+	target.addCollisionObject(player);
+
 	loop();
 }
 

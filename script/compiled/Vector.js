@@ -13,12 +13,22 @@ var Vector = (function () {
 	}
 
 	_createClass(Vector, [{
+		key: "size",
+		value: function size() {
+			return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+		}
+	}, {
 		key: "add",
 		value: function add(vector) {
 			this.x += vector.x;
 			this.y += vector.y;
 
 			return this;
+		}
+	}, {
+		key: "distanceTo",
+		value: function distanceTo(vector) {
+			return Math.sqrt(Math.pow(this.x - vector.x, 2) + Math.pow(this.y - vector.y, 2));
 		}
 	}]);
 

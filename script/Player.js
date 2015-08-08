@@ -4,7 +4,7 @@ class Player extends PhysicsObject {
 
 		this.element = element;	
 		
-		this.throttle = 100; // N
+		this.throttle = 300; // N
 		this.throttleForce = new Vector(0, 0);
 		this.forces.push(() => this.throttleForce);
 	}
@@ -17,7 +17,7 @@ class Player extends PhysicsObject {
 	render() {
 		this.next();
 		
-		this.element.style.webkitTransform = `translate3d(${this.position.x}px, ${this.position.y}px, 0)`;
+		this.element.style.webkitTransform = `translate3d(${this.position.x - (this.width / 2)}px, ${this.position.y - (this.height / 2)}px, 0)`;
 	}
 	
 }
